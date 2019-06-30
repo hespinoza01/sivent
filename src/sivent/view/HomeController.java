@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sivent.view.home;
+package sivent.view;
 
 import DB.sqlite;
 import java.io.IOException;
@@ -34,13 +34,6 @@ import sivent.utilities.dialogos;
 import static sivent.utilities.dialogos.tipo.confir;
 import sivent.utilities.rounded;
 import sivent.utilities.validator;
-import sivent.view.LoginController;
-import sivent.view.administrar.AdministrarController;
-import sivent.view.administrar.UsuarioFormController;
-import sivent.view.directorio.DirectorioController;
-import sivent.view.operaciones.OperacionesController;
-import sivent.view.productos.ProductosController;
-import sivent.view.reportes.ReportesController;
 
 /**
  * FXML Controller class
@@ -53,16 +46,11 @@ public class HomeController extends SicemWindow implements Initializable {
     @FXML private BorderPane content;
     @FXML private Pane header;
     @FXML private Button menu;
-    @FXML private ImageView avatar;
-    @FXML private Label lblUsername;
-    @FXML private Label lblID;
     @FXML private Pane navbar;
-    @FXML private Button inicioTab;
-    @FXML private Button directorioTab;
-    @FXML private Button operacionesTab;
-    @FXML private Button productosTab;
-    @FXML private Button reportesTab;
-    @FXML private Button administrarTab;
+    @FXML private Button qmodelTab;
+    @FXML private Button qmodelITab;
+    @FXML private Button pmodelTab;
+    @FXML private Button agregationplanTab;
     @FXML private VBox vbox;
     
     Pane inicio;
@@ -72,16 +60,16 @@ public class HomeController extends SicemWindow implements Initializable {
     Pane reportes;
     Pane administrar;
     
-    InicioController inicioController;
+    /*InicioController inicioController;
     DirectorioController directorioController;
     OperacionesController operacionesController;
     ProductosController productosController;
     ReportesController reportesController;
-    AdministrarController administrarController;
+    AdministrarController administrarController;*/
     
     private static Stage window;
     
-    public HomeController(){ super("/sivent/view/home/home.fxml"); }
+    public HomeController(){ super("/sivent/view/home.fxml"); }
     
     
     @Override
@@ -92,8 +80,7 @@ public class HomeController extends SicemWindow implements Initializable {
     
     public void inicia(){
         Dragged.set(header);
-        rounded.roundImageView(avatar, new Image("sivent/images/perfil.jpg"));
-        menu.setTooltip(new Tooltip("Menú"));
+        /*menu.setTooltip(new Tooltip("Menú"));
         inicioTab.setTooltip(new Tooltip("Inicio"));
         directorioTab.setTooltip(new Tooltip("Directorio"));
         operacionesTab.setTooltip(new Tooltip("Operaciones"));
@@ -101,83 +88,13 @@ public class HomeController extends SicemWindow implements Initializable {
         reportesTab.setTooltip(new Tooltip("Reportes"));
         administrarTab.setTooltip(new Tooltip("Administrar"));
         contextmenu();
-        components();
-        setInfo();
+        components();*/
         
-        
-        //Evt inicioTab click
-        inicioTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(inicioTab);
-            content.setCenter(inicio);
-            inicioController.cargar();
-        });
-        
-        
-        //Evt directorioTab click
-        directorioTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(directorioTab);
-            content.setCenter(directorio);
-            directorioController.cargar(false);
-        });
-        
-        
-        //Evt operacionesTab click
-        operacionesTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(operacionesTab);
-            content.setCenter(operaciones);
-            operacionesController.cargar(false);
-        });
-        
-        
-        //Evt productosTab click
-        productosTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(productosTab);
-            content.setCenter(productos);
-            productosController.cargar(false);
-        });
-        
-        
-        //Evt reportesTab click
-        reportesTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(reportesTab);
-            content.setCenter(reportes);
-            reportesController.cargar();
-        });
-        
-        
-        //Evt administrarTab click
-        administrarTab.setOnAction(e -> {
-            clearIndicador();
-            validator.setActive(administrarTab);
-            content.setCenter(administrar);
-            administrarController.cargar(false);
-        });
-    }
-    
-    
-    public void setInfo(){
-        usuario data = new usuario().Detalle(sqlite.getUser());
-
-        if(data != null){
-            lblID.setText(data.getUsername());
-            lblUsername.setText(data.getNombre()+" "+data.getApellido());
-            rounded.roundImageView(avatar, data.getFoto());
-            verificaPermisos(data.getUsername());
-        }
-        else
-            Popup.error(
-                "Error con la solicitud", 
-                "Ocurrió un error al tratar de obtener la información solicitada. \nPor favor, intente nuevamente.");
     }
     
     
     private void components(){
-        try{
+        /*try{
             FXMLLoader loader = Load.Loader("/sivent/view/home/inicio.fxml");
             inicio = loader.load();
             inicioController = loader.getController();
@@ -205,7 +122,7 @@ public class HomeController extends SicemWindow implements Initializable {
             
             validator.setActive(inicioTab);
             content.setCenter(inicio);
-        }catch(IOException ex){ System.out.println("Error carga components"); }
+        }catch(IOException ex){ System.out.println("Error carga components"); }*/
     }
     
     
@@ -231,54 +148,21 @@ public class HomeController extends SicemWindow implements Initializable {
         
         cerrarsesion.setOnAction(e -> { 
             if(new dialogos("Salir", "¿Cerrar sesión?", confir).show()){
-                new LoginController().show();
+                //new LoginController().show();
                 close();
             }
         });
         
-        configurarperfil.setOnAction(e -> {
-            new UsuarioFormController()
-                    .load(new UsuarioFormController())
-                    .setDataView(lblID.getText(), this)
-                    .showAfterLoad();
-        });
     }
     
     
     private void clearIndicador(){
-        validator.removeActive(inicioTab);
-        validator.removeActive(directorioTab);
-        validator.removeActive(operacionesTab);
-        validator.removeActive(productosTab);
-        validator.removeActive(reportesTab);
-        validator.removeActive(administrarTab);
+        validator.removeActive(qmodelTab);
+        validator.removeActive(qmodelITab);
+        validator.removeActive(pmodelTab);
+        validator.removeActive(agregationplanTab);
     }
     
-    
-    private void verificaPermisos(String id){
-        vbox.getChildren().clear();
-        vbox.getChildren().addAll(inicioTab, directorioTab, operacionesTab, productosTab, reportesTab, administrarTab);
-        permisos p = new permisos().get(id);
-
-        if((p.getDconsultar()==0 && p.getDeditar()==0) && p.getDcrear()==0)
-            vbox.getChildren().remove(directorioTab);
-
-        if((p.getOconsultar()==0 && p.getOeditar()==0) && p.getOcrear()==0)
-            vbox.getChildren().remove(operacionesTab);
-
-        if((p.getPconsultar()==0 && p.getPeditar()==0) && p.getPcrear()==0)
-            vbox.getChildren().remove(productosTab);
-
-        if(p.getReportes()==0)
-            vbox.getChildren().remove(reportesTab);
-
-        if(p.getAccesototal()==0)
-            vbox.getChildren().remove(administrarTab);
-        
-        directorioController.verificaPermisos();
-        productosController.verificaPermisos();
-        operacionesController.verificaPermisos();
-    }
 
     @Override
     public void show(){

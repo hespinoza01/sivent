@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="646.0" prefWidth="990.0" styleClass="scene-rounded" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.HomeController">
+   <children>
+      <BorderPane fx:id="content" layoutX="122.0" layoutY="241.0" prefHeight="596.0" prefWidth="870.0" styleClass="white" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <Pane fx:id="header" layoutX="22.0" layoutY="-44.0" prefHeight="50.0" prefWidth="200.0" styleClass="royalblue" stylesheets="@../../css/estilos.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="62.0" layoutY="13.0" styleClass="txt-blue-secondary" text="Sivent">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="menu" layoutX="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
+               <styleClass>
+                  <String fx:value="btn-icon" />
+                  <String fx:value="menu-btn" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Pane id="#navbar" fx:id="navbar" layoutY="67.0" minHeight="426.0" prefHeight="596.0" prefWidth="120.0" styleClass="antiflash-white" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <VBox fx:id="vbox" layoutY="3.0" spacing="5.0">
+               <children>
+                  <Button id="inicioTab" fx:id="qmodelTab" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="icon-tab" text="Modelo Q" textAlignment="CENTER" />
+                  <Button id="directorioTab" fx:id="qmodelITab" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="icon-tab" text="Modelo Q I" textAlignment="CENTER" />
+                  <Button id="operacionesTab" fx:id="pmodelTab" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="icon-tab" text="Modelo P" textAlignment="CENTER" />
+                  <Button id="reportesTab" fx:id="agregationplanTab" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="icon-tab" text="Planeación Agregada" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

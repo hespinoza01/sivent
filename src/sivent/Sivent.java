@@ -5,11 +5,9 @@
  */
 package sivent;
 
-import DB.conexion;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import sivent.view.LoginController;
-import sivent.view.configuracion.ConexionWizardController;
+import sivent.view.HomeController;
 
 /**
  *
@@ -18,14 +16,7 @@ import sivent.view.configuracion.ConexionWizardController;
 public class Sivent extends Application {
     
     private void inicia(){
-        try{
-            conexion c = new conexion();
-            c.open();
-            new LoginController().show();
-            c.close();
-        }catch(Exception ex){
-            new ConexionWizardController().show();
-        }
+        new HomeController().show();
     }
     
     @Override
