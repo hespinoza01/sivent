@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="870.0" style="-fx-background-color: white;" stylesheets="@/../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="sivent.view.QModel.QmodelController">
+<fx:root id="AnchorPane" prefHeight="596.0" prefWidth="870.0" style="-fx-background-color: white;" stylesheets="@/../css/estilos.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.QModel.QmodelController">
    <children>
       <GridPane layoutX="117.0" layoutY="49.0" prefHeight="332.0" prefWidth="439.0" vgap="25.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="132.0">
         <columnConstraints>
@@ -26,6 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label styleClass="label-form" text="Demanda anual (D)" />
@@ -34,20 +35,22 @@
             <Label styleClass="label-form" text="Costo producto (C)" GridPane.rowIndex="3" />
             <Label styleClass="label-form" text="Costo pedir (S)" GridPane.rowIndex="4" />
             <Label styleClass="label-form" text="Costo almacenar (H)" GridPane.rowIndex="5" />
-            <Label styleClass="label-form" text="Tasa de mantenimiento" GridPane.rowIndex="6" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label styleClass="label-form" text="Tasa de mantenimiento (%)" GridPane.rowIndex="6" />
+            <TextField fx:id="txtDemanda" styleClass="textfield-form" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPlazo" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDiasHabiles" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCostoProducto" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtCostoPedir" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtCostoMantenimiento" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtTasa" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label styleClass="label-form" text="Stock de Seguridad" GridPane.rowIndex="7" />
+            <TextField fx:id="txtSS" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <HBox layoutX="75.0" layoutY="494.0" spacing="25.0">
+      <HBox layoutX="75.0" layoutY="538.0" spacing="25.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" text="Resultado" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Reiniciar campos" />
+            <Button fx:id="btnCalcular" mnemonicParsing="false" onMouseClicked="#Calcular" prefHeight="26.0" prefWidth="125.0" text="Resultado" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#LimpiarCampos" prefHeight="26.0" prefWidth="143.0" text="Reiniciar campos" />
          </children>
       </HBox>
       <VBox layoutX="521.0" layoutY="121.0" spacing="26.0" AnchorPane.rightAnchor="75.0">
@@ -55,31 +58,31 @@
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
                   <Label text="Cantidad óptima a pedir" />
-                  <TextField editable="false" />
+                  <TextField fx:id="txtCantidad" editable="false" />
                </children>
             </VBox>
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
                   <Label text="Números de pedidos al año" />
-                  <TextField editable="false" />
+                  <TextField fx:id="txtNumeroPedidos" editable="false" />
                </children>
             </VBox>
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
                   <Label text="Días entre pedidos" />
-                  <TextField editable="false" />
+                  <TextField fx:id="txtTiempoPedidos" editable="false" />
                </children>
             </VBox>
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
                   <Label text="Punto de reorden" />
-                  <TextField editable="false" />
+                  <TextField fx:id="txtROP" editable="false" />
                </children>
             </VBox>
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
                   <Label text="Costo anual total" />
-                  <TextField editable="false" />
+                  <TextField fx:id="txtCostoAnual" editable="false" />
                </children>
             </VBox>
          </children>
@@ -89,4 +92,4 @@
       <Separator layoutX="616.0" layoutY="94.0" prefHeight="3.0" prefWidth="134.0" />
       <Label layoutX="626.0" layoutY="73.0" text="Resultados" />
    </children>
-</AnchorPane>
+</fx:root>

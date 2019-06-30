@@ -80,6 +80,7 @@ public class HomeController extends SicemWindow implements Initializable {
     
     public void inicia(){
         Dragged.set(header);
+        contextmenu();
         /*menu.setTooltip(new Tooltip("Menú"));
         inicioTab.setTooltip(new Tooltip("Inicio"));
         directorioTab.setTooltip(new Tooltip("Directorio"));
@@ -87,7 +88,6 @@ public class HomeController extends SicemWindow implements Initializable {
         productosTab.setTooltip(new Tooltip("Productos"));
         reportesTab.setTooltip(new Tooltip("Reportes"));
         administrarTab.setTooltip(new Tooltip("Administrar"));
-        contextmenu();
         components();*/
         
     }
@@ -129,9 +129,9 @@ public class HomeController extends SicemWindow implements Initializable {
     private void contextmenu(){
         ContextMenu contextmenu = new ContextMenu();
         MenuItem salir = new MenuItem("Salir");
-        MenuItem cerrarsesion = new MenuItem("Cerrar Sesión");
+//        MenuItem cerrarsesion = new MenuItem("Cerrar Sesión");
         MenuItem configurarperfil = new MenuItem("Configurar perfil");
-        contextmenu.getItems().addAll(configurarperfil, cerrarsesion, salir);
+        contextmenu.getItems().addAll(configurarperfil/*, cerrarsesion*/, salir);
         
         menu.setContextMenu(contextmenu);
         menu.setOnAction(e -> { 
@@ -146,12 +146,12 @@ public class HomeController extends SicemWindow implements Initializable {
                 System.exit(0); 
         });
         
-        cerrarsesion.setOnAction(e -> { 
+       /* cerrarsesion.setOnAction(e -> { 
             if(new dialogos("Salir", "¿Cerrar sesión?", confir).show()){
                 //new LoginController().show();
                 close();
             }
-        });
+        });*/
         
     }
     
