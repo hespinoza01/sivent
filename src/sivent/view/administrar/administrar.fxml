@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="950.0" stylesheets="@../../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="sivent.view.administrar.AdministrarController">
+    <children>
+      <Pane layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="467.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="20.0" layoutY="80.0" prefHeight="36.0" prefWidth="381.0" styleClass="content-search">
+               <children>
+                  <HBox layoutX="5.0" layoutY="3.0" spacing="1.0">
+                     <children>
+                        <ImageView id="icon-search" fx:id="imageviewSearch" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextField fx:id="txtBusqueda" prefWidth="225.0" promptText="Buscar..." styleClass="search-field" />
+                        <ChoiceBox fx:id="metodoBusqueda" prefHeight="30.0" prefWidth="115.0" styleClass="search-type" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Button fx:id="btnAdd" layoutX="411.0" layoutY="80.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" styleClass="btn-add" />
+            <TableView fx:id="vistaResultados" layoutX="20.0" layoutY="146.0" prefHeight="425.0" prefWidth="427.0">
+               <columns>
+                  <TableColumn fx:id="columnID" editable="false" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" resizable="false" sortable="false" text="ID" />
+                  <TableColumn fx:id="columnNombre" editable="false" maxWidth="205.0" minWidth="205.0" prefWidth="205.0" resizable="false" sortable="false" text="Nombre" />
+                  <TableColumn fx:id="columnFechaModificacion" editable="false" maxWidth="147.0" minWidth="147.0" prefWidth="147.0" resizable="false" sortable="false" text="Fecha modificación" />
+               </columns>
+            </TableView>
+            <TabPane fx:id="navegacion" layoutX="20.0" layoutY="14.0" prefHeight="37.0" prefWidth="427.0" styleClass="navbar" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="usuariosTab" closable="false" text="Usuarios" />
+                <Tab fx:id="ProductosTab" closable="false" text="Productos" />
+                  <Tab fx:id="categoriasTab" closable="false" text="Categorías" />
+                  <Tab fx:id="departamentosTab" closable="false" text="Departamentos" />
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+      <BorderPane fx:id="contentDetails" layoutX="512.0" layoutY="59.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(240, 250, 239);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="680.0" style="-fx-background-color: #fff;" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.operaciones.CompraFormController">
+    <children>
+      <Pane fx:id="title" layoutX="67.0" layoutY="14.0" prefHeight="44.0" prefWidth="200.0" styleClass="royalblue" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="titleLbl" layoutX="14.0" layoutY="9.0" styleClass="title-form" text="Información compra" />
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="61.0" prefHeight="150.0" prefWidth="200.0" styleClass="contentpanel-form" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="61.0">
+         <children>
+            <Label prefWidth="320.0" styleClass="subtitle-form" text="Datos compra">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtProveedor" layoutX="15.0" layoutY="50.0" prefWidth="235.0" styleClass="textfield-form" />
+            <Label layoutX="15.0" layoutY="31.0" styleClass="label-form" text="Proveedor" />
+            <TextField fx:id="txtCodigoCompra" editable="false" layoutX="320.0" layoutY="50.0" prefWidth="170.0" styleClass="textfield-form" />
+            <Label layoutX="320.0" layoutY="31.0" styleClass="label-form" text="Cod. compra" />
+            <DatePicker fx:id="fechaCompra" editable="false" layoutX="15.0" layoutY="110.0" prefHeight="28.0" prefWidth="170.0" styleClass="datepicker-form" />
+            <Label layoutX="15.0" layoutY="92.0" styleClass="label-form" text="Fecha compra" />
+            <ComboBox fx:id="tipoPago" layoutX="240.0" layoutY="110.0" prefWidth="135.0" styleClass="combobox-form" />
+            <Label layoutX="240.0" layoutY="92.0" styleClass="label-form" text="Tipo de pago" />
+         </children>
+      </Pane>
+      <AnchorPane layoutX="20.0" layoutY="228.0" prefHeight="330.0" prefWidth="200.0" styleClass="contentpanel-form" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="228.0">
+         <children>
+            <Label prefWidth="320.0" styleClass="subtitle-form" text="Detalle compra">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <HBox layoutX="15.0" layoutY="50.0" spacing="40.0">
+               <children>
+                  <TextField fx:id="txtProducto" prefWidth="195.0" styleClass="textfield-form" />
+                  <Spinner fx:id="txtCantidadProducto" editable="true" prefWidth="90.0" styleClass="spinner-form" />
+                  <TextField fx:id="txtCostoUnitario" prefWidth="130.0" styleClass="textfield-form" />
+               </children>
+            </HBox>
+            <Label layoutX="15.0" layoutY="31.0" styleClass="label-form" text="Producto" />
+            <Label layoutX="250.0" layoutY="31.0" styleClass="label-form" text="Cantidad" />
+            <Label layoutX="381.0" layoutY="31.0" styleClass="label-form" text="Costo unitario" />
+            <Button fx:id="agregarProductoDetalle" layoutX="15.0" layoutY="90.0" maxHeight="20.0" mnemonicParsing="false" prefHeight="20.0" styleClass="btn-addp" text="Agregar" />
+            <TableView fx:id="detalleCompra" layoutX="1.0" layoutY="130.0" prefHeight="205.0" prefWidth="638.0" styleClass="tableview-form" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="idProducto" editable="false" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" resizable="false" sortable="false" text="ID" />
+                <TableColumn fx:id="nombreProducto" editable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" sortable="false" text="Producto" />
+                  <TableColumn fx:id="cantidadProducto" editable="false" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" resizable="false" sortable="false" text="Cantidad" />
+                  <TableColumn fx:id="costoProducto" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" sortable="false" text="Costo unitario" />
+                  <TableColumn fx:id="costoTotal" editable="false" maxWidth="118.0" minWidth="118.0" prefWidth="118.0" resizable="false" sortable="false" text="Total" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="262.0" layoutY="599.0" spacing="25.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Button fx:id="cancelarButton" mnemonicParsing="false" styleClass="btn-secondary" text="Cancelar" />
+            <Button fx:id="aceptarButton" mnemonicParsing="false" styleClass="btn-primary" text="Guardar" />
+         </children>
+      </HBox>
+      <HBox layoutX="408.0" layoutY="578.0" spacing="2.0" styleClass="lbl-value-form" AnchorPane.bottomAnchor="110.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefWidth="70.0" style="-fx-text-fill: #4169e1;" text="Total" />
+            <Label fx:id="txtTotalCompra" prefWidth="95.0" style="-fx-text-fill: #4169e1;" text="subtotal value" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

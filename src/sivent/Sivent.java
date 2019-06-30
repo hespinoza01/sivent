@@ -5,13 +5,11 @@
  */
 package sivent;
 
+import DB.conexion;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import sivent.view.LoginController;
+import sivent.view.configuracion.ConexionWizardController;
 
 /**
  *
@@ -19,9 +17,20 @@ import javafx.stage.Stage;
  */
 public class Sivent extends Application {
     
+    private void inicia(){
+        try{
+            conexion c = new conexion();
+            c.open();
+            new LoginController().show();
+            c.close();
+        }catch(Exception ex){
+            new ConexionWizardController().show();
+        }
+    }
+    
     @Override
     public void start(Stage primaryStage) {
-        
+        inicia();
     }
 
     /**

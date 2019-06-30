@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="483.0" style="-fx-background-color: #fff;" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.operaciones.DetalleCompraController">
+    <children>
+      <HBox layoutX="289.0" layoutY="444.0" spacing="2.0" styleClass="lbl-value-form" AnchorPane.bottomAnchor="126.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefWidth="70.0" style="-fx-text-fill: #4169e1;" text="Total" />
+            <Label fx:id="txtTotalCompra" prefWidth="95.0" style="-fx-text-fill: #4169e1;" text="subtotal value" />
+         </children>
+      </HBox>
+      <TextField fx:id="txtProveedor" editable="false" layoutX="20.0" layoutY="112.0" prefWidth="210.0" styleClass="textfield-detail" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="112.0" />
+      <Label layoutX="20.0" layoutY="93.0" styleClass="label-form" text="Proveedor" AnchorPane.leftAnchor="20.0" />
+      <TextField fx:id="txtCodigoCompra" editable="false" layoutX="269.0" layoutY="112.0" prefWidth="150.0" styleClass="textarea-detail" AnchorPane.topAnchor="112.0" />
+      <Label layoutX="269.0" layoutY="93.0" styleClass="label-form" text="Cod. compra" />
+      <Label layoutX="20.0" layoutY="154.0" styleClass="label-form" text="Fecha compra" AnchorPane.leftAnchor="20.0" />
+      <Label layoutX="237.0" layoutY="154.0" styleClass="label-form" text="Tipo de pago" />
+      <TableView fx:id="detalleCompra" layoutX="20.0" layoutY="220.0" prefHeight="205.0" prefWidth="200.0" styleClass="tableview-detail" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <columns>
+            <TableColumn fx:id="idProducto" editable="false" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" resizable="false" sortable="false" text="ID" />
+            <TableColumn fx:id="nombreProducto" editable="false" maxWidth="135.0" minWidth="135.0" prefWidth="135.0" resizable="false" sortable="false" text="Producto" />
+            <TableColumn fx:id="cantidadProducto" editable="false" maxWidth="95.0" minWidth="95.0" prefWidth="95.0" resizable="false" sortable="false" text="Cantidad" />
+            <TableColumn fx:id="costoProducto" editable="false" maxWidth="95.0" minWidth="95.0" prefWidth="95.0" sortable="false" text="Costo unitario" />
+            <TableColumn fx:id="costoTotal" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" sortable="false" text="Total" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtFechaCompra" editable="false" layoutX="20.0" layoutY="172.0" prefHeight="28.0" prefWidth="170.0" styleClass="textfield-detail" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="172.0" />
+      <TextField fx:id="txtTipoPago" editable="false" layoutX="237.0" layoutY="172.0" prefHeight="28.0" prefWidth="135.0" styleClass="textfield-detail" AnchorPane.topAnchor="172.0" />
+      <Button fx:id="editar" layoutX="383.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="btn-edit" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <HBox fx:id="EstadoValueContent" layoutX="20.0" layoutY="499.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="499.0">
+         <children>
+            <Label styleClass="est-lbl-indicador" text="Estado" />
+            <Label fx:id="EstadoValue" styleClass="est-lbl-content" text="Estado value" />
+         </children>
+      </HBox>
+      <HBox layoutX="20.0" layoutY="539.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="539.0">
+         <children>
+            <Label styleClass="est-lbl-indicador" text="Fecha modificación" />
+            <Label fx:id="labelFechaModificacion" styleClass="est-lbl-content" text="fecha value (dd/mm/yyyy)" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
