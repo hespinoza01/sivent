@@ -265,8 +265,7 @@ instance/*
 .mtj.tmp/
 
 # Package Files #
-*.jar
-*.war
+#*.war
 *.nar
 *.ear
 *.zip
