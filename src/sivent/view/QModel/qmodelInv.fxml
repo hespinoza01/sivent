@@ -41,9 +41,9 @@
             <TextField fx:id="txtDiasHabiles" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtCostoPedir" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="txtCostoMantenimiento" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="txtDesviacionEstandar" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtDesviacion" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label prefHeight="36.0" prefWidth="174.0" styleClass="label-form" text="Probabilidad de que agote el inventario (%)" wrapText="true" GridPane.rowIndex="6" />
-            <Spinner fx:id="txtProbAgoteInv" prefHeight="28.0" prefWidth="271.0" styleClass="spinner-form" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Spinner fx:id="Num" prefHeight="28.0" prefWidth="271.0" styleClass="spinner-form" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <HBox layoutX="75.0" layoutY="538.0" spacing="25.0">
@@ -84,5 +84,11 @@
       <Label layoutX="75.0" layoutY="77.0" text="Datos" />
       <Separator layoutX="616.0" layoutY="94.0" prefHeight="3.0" prefWidth="134.0" />
       <Label layoutX="626.0" layoutY="73.0" text="Resultados" />
+      <VBox layoutX="616.0" layoutY="432.0" prefWidth="179.0" spacing="5.0">
+         <children>
+            <Label prefHeight="32.0" prefWidth="179.0" styleClass="label-form" text="Inventario de Seguridad" wrapText="true" />
+            <TextField fx:id="txtSS" editable="false" styleClass="textfield-detail" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

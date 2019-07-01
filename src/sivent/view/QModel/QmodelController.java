@@ -120,24 +120,24 @@ public class QmodelController implements Initializable {
             {
                 i = Double.parseDouble(txtTasa.getText());
                 txtCostoMantenimiento.setText(String.valueOf(i*c));
-                qopt =Math.round(Math.sqrt((2 * D * S) / (i * c)));
-                Ct = Math.round(((D * S) / qopt) + ((qopt * (i * c) / 2) + (D * c)));
+                qopt =Math.ceil(Math.sqrt((2 * D * S) / (i * c)));
+                Ct = Math.ceil(((D * S) / qopt) + ((qopt * (i * c) / 2) + (D * c)));
             }
             else if (txtTasa.getText()=="" || txtTasa.getText()=="0")
             {
                 h=Double.parseDouble(txtCostoMantenimiento.getText());
                 txtTasa.setText(String.valueOf(h/c));
-                qopt =Math.round(Math.sqrt((2 * D * S) / (h)));
-                Ct = Math.round(((D * S) / qopt) + ((qopt * (h) / 2) + (D * c)));
+                qopt =Math.ceil(Math.sqrt((2 * D * S) / (h)));
+                Ct = Math.ceil(((D * S) / qopt) + ((qopt * (h) / 2) + (D * c)));
             }
             
-            Pd = Math.round (D/qopt);                   
-            demp = Math.round(D/Pd);
-            Rop = Math.round((D / dh) * L)+ss;
+            Pd = Math.ceil(D/qopt);                   
+            demp = Math.ceil(D/Pd);
+            Rop = Math.ceil((D / dh) * L)+ss;
             txtCantidad.setText(String.valueOf(qopt));
             txtNumeroPedidos.setText(String.valueOf(Pd));
             np = Double.parseDouble(txtNumeroPedidos.getText());
-            tp = Math.round(dh / np);
+            tp = Math.ceil(dh / np);
             txtTiempoPedidos.setText(String.valueOf(tp));
             txtROP.setText(String.valueOf(Rop));
             txtCostoAnual.setText(String.valueOf(Ct));
