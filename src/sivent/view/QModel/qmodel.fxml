@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="870.0" styleClass="white" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.QModel.QmodelController">
+<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="870.0" style="-fx-background-color: white;" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.QModel.QmodelController">
    <children>
-      <GridPane layoutX="117.0" layoutY="49.0" prefHeight="332.0" prefWidth="439.0" vgap="25.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="132.0">
+      <GridPane layoutX="80.0" layoutY="100.0" prefHeight="332.0" prefWidth="439.0" vgap="25.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="100.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="168.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="260.0" />
@@ -35,7 +35,7 @@
             <Label styleClass="label-form" text="Costo producto (C)" GridPane.rowIndex="3" />
             <Label styleClass="label-form" text="Costo pedir (S)" GridPane.rowIndex="4" />
             <Label styleClass="label-form" text="Costo almacenar (H)" GridPane.rowIndex="5" />
-            <Label prefHeight="30.0" prefWidth="174.0" styleClass="label-form" text="Tasa mantenimiento (%)" wrapText="true" GridPane.rowIndex="6" />
+            <Label styleClass="label-form" text="Tasa de mantenimiento (%)" GridPane.rowIndex="6" />
             <TextField fx:id="txtDemanda" styleClass="textfield-form" GridPane.columnIndex="1" />
             <TextField fx:id="txtPlazo" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtDiasHabiles" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -47,13 +47,13 @@
             <TextField fx:id="txtSS" styleClass="textfield-form" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <HBox layoutX="75.0" layoutY="538.0" spacing="25.0">
+      <HBox layoutX="80.0" layoutY="506.0" spacing="25.0" AnchorPane.bottomAnchor="40.0">
          <children>
-            <Button fx:id="btnCalcular" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" styleClass="btn-primary" text="Resultado" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" styleClass="btn-secondary" text="Reiniciar campos" />
+            <Button fx:id="btnCalcular" mnemonicParsing="false" onMouseClicked="#Calcular" prefHeight="26.0" prefWidth="125.0" styleClass="btn-primary" text="Resultado" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#LimpiarCampos" prefHeight="26.0" prefWidth="143.0" styleClass="btn-secondary" text="Reiniciar campos" />
          </children>
       </HBox>
-      <VBox layoutX="521.0" layoutY="121.0" spacing="26.0" AnchorPane.rightAnchor="75.0">
+      <VBox layoutX="621.0" layoutY="89.0" spacing="26.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="89.0">
          <children>
             <VBox prefWidth="179.0" spacing="5.0">
                <children>
@@ -87,9 +87,9 @@
             </VBox>
          </children>
       </VBox>
-      <Separator layoutX="65.0" layoutY="98.0" prefWidth="200.0" />
-      <Label layoutX="75.0" layoutY="77.0" text="Datos" />
-      <Separator layoutX="616.0" layoutY="94.0" prefHeight="3.0" prefWidth="134.0" />
-      <Label layoutX="626.0" layoutY="73.0" text="Resultados" />
+      <Separator layoutX="70.0" layoutY="66.0" prefWidth="200.0" />
+      <Label layoutX="80.0" layoutY="45.0" text="Datos" />
+      <Separator layoutX="611.0" layoutY="62.0" prefHeight="3.0" prefWidth="134.0" AnchorPane.rightAnchor="125.0" />
+      <Label layoutX="621.0" layoutY="41.0" text="Resultados" AnchorPane.rightAnchor="177.0" />
    </children>
 </AnchorPane>

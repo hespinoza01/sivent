@@ -27,8 +27,7 @@ import sivent.utilities.dialogos;
 import static sivent.utilities.dialogos.tipo.confir;
 import sivent.view.AggregatePlanning.AggregatePlanningController;
 import sivent.view.PModel.PmodelController;
-import sivent.view.QModel.QmodelController;
-import sivent.view.QModel.QmodelInvController;
+import sivent.view.QModel.QModelContainerController;
 
 /**
  * FXML Controller class
@@ -42,18 +41,15 @@ public class HomeController extends SicemWindow implements Initializable {
     @FXML private Button menu;
     @FXML private TabPane navegacion;
     @FXML private Tab qmodelTab;
-    @FXML private Tab qmodelinvTab;
     @FXML private Tab pmodelTab;
     @FXML private Tab aggregationplanTab;
 
     
     Pane Qmodel;
-    Pane QmodelInv;
     Pane Pmodel;
     Pane AggregatePlanning;
     
-    QmodelController qmodelController;
-    QmodelInvController qmodelinvController;
+    QModelContainerController qmodelController;
     PmodelController pmodelController;
     AggregatePlanningController aggregateplanningController;
 
@@ -81,14 +77,10 @@ public class HomeController extends SicemWindow implements Initializable {
                     break;
                     
                 case 1:
-                    content.setCenter(QmodelInv);
-                    break;
-                    
-                case 2:
                     content.setCenter(Pmodel);
                     break;
                     
-                case 3:
+                case 2:
                     content.setCenter(AggregatePlanning);
             }
         });
@@ -97,13 +89,9 @@ public class HomeController extends SicemWindow implements Initializable {
     
     private void components(){
         try{
-            FXMLLoader loader = Load.Loader("/sivent/view/QModel/qmodel.fxml");
+            FXMLLoader loader = Load.Loader("/sivent/view/QModel/QModelContainer.fxml");
             Qmodel = loader.load();
             qmodelController = loader.getController();
-            
-            loader = Load.Loader("/sivent/view/QModel/qmodelInv.fxml");
-            QmodelInv = loader.load();
-            qmodelinvController = loader.getController();
             
             loader = Load.Loader("/sivent/view/PModel/pmodel.fxml");
             Pmodel = loader.load();

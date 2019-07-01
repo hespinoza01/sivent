@@ -30,10 +30,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TabPane fx:id="navegacion" layoutX="454.0" layoutY="6.0" prefHeight="35.0" styleClass="navbar" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="navegacion" layoutX="568.0" layoutY="6.0" prefHeight="35.0" styleClass="navbar" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                   <Tab fx:id="qmodelTab" closable="false" text="Modelo Q" />
-                  <Tab fx:id="qmodelinvTab" closable="false" text="Modelo Q Inv" />
                 <Tab fx:id="pmodelTab" closable="false" text="Modelo P" />
                 <Tab fx:id="aggregationplanTab" closable="false" text="Planeación Agregada" />
               </tabs>
