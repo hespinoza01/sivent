@@ -120,7 +120,7 @@ public class PmodelController implements Initializable {
                     T = Integer.parseInt(txtPeriodoRevision.getText());
                     desv = Double.parseDouble(txtDesviacionEstandar.getText());
 
-                    desd = Math.round(Math.sqrt((L + T) * Math.pow(desv, 2)));
+                    desd = Math.ceil(Math.sqrt((L + T) * Math.pow(desv, 2)));
                     txtDesviacionEstandarDemanda.setText(String.valueOf(desd));
 
                     if (Num.getValue() == "95")
@@ -145,7 +145,7 @@ public class PmodelController implements Initializable {
 
                     }
                     z = Double.parseDouble(txtZ.getText());
-                    qopt = Math.round(((d * (T + L)) + (z * desd) - I));
+                    qopt = Math.ceil(((d * (T + L)) + (z * desd) - I));
                     txtCantidad.setText(String.valueOf(qopt));
             }
         }

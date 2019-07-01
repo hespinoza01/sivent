@@ -129,8 +129,8 @@ public class QmodelInvController implements Initializable
                  H = Double.parseDouble(txtCostoMantenimiento.getText());
                  dh = Integer.parseInt(txtDiasHabiles.getText());
                  des = Double.parseDouble(txtDesviacion.getText());
-                 qopt = Math.round(Math.sqrt((2 * D * S) / (H)));
-                 ded = Math.round(des / Math.sqrt(L));
+                 qopt = Math.ceil(Math.sqrt((2 * D * S) / (H)));
+                 ded = Math.ceil(des / Math.sqrt(L));
 
                  txtCantidad.setText(String.valueOf(qopt));
                  txtDesviacionEstandarDemanda.setText(String.valueOf(ded));
@@ -157,9 +157,9 @@ public class QmodelInvController implements Initializable
                     txtZ.setText("2,33");
                 }
                     z = Double.parseDouble(txtZ.getText());
-                    ins = Math.round((z * ded * Math.sqrt(L)));
+                    ins = Math.ceil((z * ded * Math.sqrt(L)));
                     txtSS.setText(String.valueOf(ins));
-                    Rop = Math.round((((D / dh) * L) + ins));
+                    Rop = Math.ceil((((D / dh) * L) + ins));
                     txtROP.setText(String.valueOf(Rop));
              }
         }
