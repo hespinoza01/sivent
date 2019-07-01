@@ -48,8 +48,8 @@
       </GridPane>
       <HBox layoutX="75.0" layoutY="538.0" spacing="25.0">
          <children>
-            <Button fx:id="btnCalcular" mnemonicParsing="false" onMouseClicked="#Calcular" prefHeight="26.0" prefWidth="125.0" styleClass="btn-primary" text="Resultado" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" onMouseClicked="#LimpiarCampos" prefHeight="26.0" prefWidth="160.0" styleClass="btn-secondary" text="Reiniciar campos" />
+            <Button fx:id="btnCalcular" mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" styleClass="btn-primary" text="Resultado" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" styleClass="btn-secondary" text="Reiniciar campos" />
          </children>
       </HBox>
       <VBox layoutX="521.0" layoutY="121.0" spacing="26.0" AnchorPane.rightAnchor="75.0">

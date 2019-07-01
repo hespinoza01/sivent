@@ -10,10 +10,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.StageStyle;
-import javafx.util.converter.DoubleStringConverter;
 
 /**
  * FXML Controller class
@@ -173,5 +171,8 @@ public class QmodelController implements Initializable {
         txtCostoProducto.setOnKeyTyped(e->{ ValidarDec(e);});
         txtCostoMantenimiento.setOnKeyTyped(e->{ ValidarDec(e);});
         txtCostoPedir.setOnKeyTyped(e->{ ValidarDec(e);});
+        
+        btnCalcular.setOnAction(e -> { Calcular(); });
+        btnLimpiar.setOnAction(e -> { LimpiarCampos(); });
     }
 }
