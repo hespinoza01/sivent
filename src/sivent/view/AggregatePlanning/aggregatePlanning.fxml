@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="870.0" styleClass="white" stylesheets="@../../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="sivent.view.AggregatePlanning.AggregatePlanningController">
+<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="870.0" styleClass="white" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sivent.view.AggregatePlanning.AggregatePlanningController">
    <children>
       <HBox layoutX="38.0" layoutY="43.0" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
       <TableView fx:id="datosTable" editable="true" layoutX="30.0" layoutY="106.0" prefHeight="175.0" prefWidth="310.0">
@@ -110,7 +111,7 @@
                   <Font size="12.0" />
                </font>
             </Label>
-            <Label styleClass="label-form" text="Stock seguridad" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label styleClass="label-form" text="Stock seguridad(%)" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="12.0" />
                </font>
@@ -144,7 +145,7 @@
         <columns>
           <TableColumn fx:id="periodoResultadoColumn" editable="false" prefWidth="75.0" sortable="false" text="Período" />
           <TableColumn fx:id="requerimientoProdColumn" editable="false" prefWidth="75.0" sortable="false" text="Req. Prod." />
-            <TableColumn fx:id="diasHabilesColumn" editable="false" prefWidth="75.0" sortable="false" text="Días hábiles" />
+            <TableColumn fx:id="diasHabilesResultadoColumn" editable="false" prefWidth="75.0" sortable="false" text="Días hábiles" />
             <TableColumn fx:id="hrsProduccionRequeridasColumn" editable="false" prefWidth="75.0" sortable="false" text="Hrs. prod. requeridas" />
             <TableColumn fx:id="produccionRealColumn" editable="false" prefWidth="75.0" sortable="false" text="Prod. real" />
             <TableColumn fx:id="unidadesSubcontratadasColumn" editable="false" prefWidth="75.0" sortable="false" text="Unidades Subcontratadas" />
@@ -156,5 +157,16 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <VBox layoutX="367.0" layoutY="284.0" spacing="5.0">
+         <children>
+            <RadioButton fx:id="tipoPersecucion" mnemonicParsing="false" styleClass="radiobutton-form" text="Persecución">
+               <toggleGroup>
+                  <ToggleGroup fx:id="TipoMetodo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="tipoConstante" mnemonicParsing="false" styleClass="radiobutton-form" text="Constante, horas extras" toggleGroup="$TipoMetodo" />
+            <RadioButton fx:id="tipoSubcontratacion" mnemonicParsing="false" styleClass="radiobutton-form" text="Subcontratación" toggleGroup="$TipoMetodo" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

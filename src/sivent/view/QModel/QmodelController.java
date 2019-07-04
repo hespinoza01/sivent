@@ -98,8 +98,8 @@ public class QmodelController implements Initializable {
             ss=0;
         }
         if (txtCostoPedir.getText().equals("")== true || 
-                txtDemanda.getText().equals("") == true || 
-                txtPlazo.getText().equals("") == true)
+                txtDemanda.getText().equals("") == true /*|| 
+                txtPlazo.getText().equals("") == true*/)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initStyle(StageStyle.UTILITY);
@@ -112,32 +112,46 @@ public class QmodelController implements Initializable {
         {
             D = Double.parseDouble(txtDemanda.getText());
             S = Double.parseDouble(txtCostoPedir.getText());
-            dh = Integer.parseInt(txtDiasHabiles.getText());
+            if (txtDiasHabiles.getText().isEmpty()==true || txtDiasHabiles.getText().equals("0")==true) 
+            {
+                dh=360;
+            }
+            else
+            {
+                dh=Integer.parseInt(txtDiasHabiles.getText());
+            }
             c = Double.parseDouble(txtCostoProducto.getText());
-            L = Integer.parseInt(txtPlazo.getText());
-            ss = Integer.parseInt(txtSS.getText());
-            if(txtCostoMantenimiento.getText()=="" || txtCostoMantenimiento.getText()=="0" )
+            if (txtSS.getText().isEmpty()==true || txtSS.getText().equals("0")==true) 
+            {
+                ss=0;
+            }
+            else
+            {
+                ss=Integer.parseInt(txtSS.getText());
+            }
+            if(txtCostoMantenimiento.getText().isEmpty() ==true || txtCostoMantenimiento.getText()=="0" )
             {
                 i = Double.parseDouble(txtTasa.getText());
                 txtCostoMantenimiento.setText(String.valueOf(i*c));
-                qopt =Math.ceil(Math.sqrt((2 * D * S) / (i * c)));
-                Ct = Math.ceil(((D * S) / qopt) + ((qopt * (i * c) / 2) + (D * c)));
+                qopt =Math.round(Math.sqrt((2 *D *S) / (i*c)));
+                Ct = Math.round(((D * S) / qopt) + ((qopt * (i * c) / 2) + (D * c)));
             }
             else if (txtTasa.getText()=="" || txtTasa.getText()=="0")
             {
                 h=Double.parseDouble(txtCostoMantenimiento.getText());
                 txtTasa.setText(String.valueOf(h/c));
-                qopt =Math.ceil(Math.sqrt((2 * D * S) / (h)));
-                Ct = Math.ceil(((D * S) / qopt) + ((qopt * (h) / 2) + (D * c)));
+                qopt =Math.round(Math.sqrt((2*D*S)/(h)));
+                Ct = Math.round(((D * S) / qopt) + ((qopt * (h) / 2) + (D * c)));
             }
-            
-            Pd = Math.ceil(D/qopt);                   
-            demp = Math.ceil(D/Pd);
-            Rop = Math.ceil((D / dh) * L)+ss;
+            Pd = Math.round(D/qopt); 
+            L=(int) Math.round(dh/Pd);
+            demp = Math.round(D/Pd);
+            Rop = Math.round((D / dh) * L)+ss;
+            txtPlazo.setText(String.valueOf(L));
             txtCantidad.setText(String.valueOf(qopt));
             txtNumeroPedidos.setText(String.valueOf(Pd));
             np = Double.parseDouble(txtNumeroPedidos.getText());
-            tp = Math.ceil(dh / np);
+            tp = Math.round(dh / np);
             txtTiempoPedidos.setText(String.valueOf(tp));
             txtROP.setText(String.valueOf(Rop));
             txtCostoAnual.setText(String.valueOf(Ct));
